@@ -1,3 +1,4 @@
+#import packages
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -5,13 +6,17 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 import random
 
+#create pitches data frame
 df = pd.read_csv("pitches.csv",nrows=10000)
 data = df.drop(['code', 'type', 'pitch_type',
        'event_num', 'b_score', 'ab_id', 'b_count', 's_count', 'outs',
        'pitch_num', 'on_1b', 'on_2b', 'on_3b','y0','break_y', 'ax', 'ay', 'az', 'sz_bot',
        'sz_top', 'type_confidence','x', 'x0', 'y', 'z0','zone','end_speed'], axis = 1)
+
+#fill missing values with the mean
 data.fillna(data.mean(), inplace=True)
 
+#intialize PCA function
 scale = StandardScaler()
 scale_data = scale.fit_transform(data)
 pca = PCA(n_components=13)
@@ -21,6 +26,7 @@ perc_exp = pca.explained_variance_ratio_
 per_var = np.round(perc_exp*100,decimals=1)
 loadings = pca.components_
 
+#create features of each principal component
 num_pc = pca.n_features_
 pc_list = ["PC"+str(i) for i in list(range(1, num_pc+1))]
 loadings_df = pd.DataFrame.from_dict(dict(zip(pc_list, loadings)))
@@ -28,6 +34,7 @@ loadings_df['variable'] = data.columns.values
 loadings_df = loadings_df.set_index('variable')
 print(loadings_df)
 
+#create PCA biplot
 def myplot(score,coeff,labels=None):
     xs = score[:,0]
     ys = score[:,1]
@@ -48,7 +55,7 @@ def myplot(score,coeff,labels=None):
     plt.title("PCA Biplot")
     plt.grid()
 
-#Call the function. Use only the 2 PCs.
+#Call the function. Use only the first 2 PCs.
 myplot(pitches_pca[:,0:2],np.transpose(loadings[0:2, :]))
 
 var_sum = 0
@@ -57,8 +64,8 @@ for i in range(len(perc_exp)):
     if var_sum < .7:
         var_sum+=perc_exp[i]
         count+=1
-#print("The variance explained is " + str(var_sum)+ " in " + str(count) + " principal components")
 
+#create the variacne explanied and PCA Comp graphs
 pcaComp_df = pd.DataFrame(data = pca.components_,index = ['px', 'pz', 'start_speed', 'spin_rate', 'spin_dir',
        'break_angle', 'break_length', 'vx0', 'vy0', 'vz0','pfx_x', 'pfx_z', 'nasty'],
        columns = ["PC1","PC2","PC3","PC4", "PC5","PC6","PC7","PC8","PC9",
