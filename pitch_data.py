@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 import random
 
 #create pitches data frame
-df = pd.read_csv("pitches.csv",nrows=10000)
+df = pd.read_csv(".\Data\pitches.csv",nrows=10000)
 data = df.drop(['code', 'type', 'pitch_type',
        'event_num', 'b_score', 'ab_id', 'b_count', 's_count', 'outs',
        'pitch_num', 'on_1b', 'on_2b', 'on_3b','y0','break_y', 'ax', 'ay', 'az', 'sz_bot',
