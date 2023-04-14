@@ -25,6 +25,6 @@ Steps done to create mode
 ## Model Results
 
 Graphs from resuling PCA model:
-![alt text](https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/Biplot.png "Biplot")
-![alt text](https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/PCA_Comp.png "PCA Comp")
-![alt text](https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/Variance_Explained.png "Variance Explained")
+<img src="https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/Biplot.png" width="100" height="100">
+<img src="https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/PCA_Comp.png" width="100" height="100">
+<img src="https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/Variance_Explained.png" width="100" height="100">
