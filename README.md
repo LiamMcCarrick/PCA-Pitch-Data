@@ -1,4 +1,4 @@
-# Principal Compoennt Analysis of 2019 MLb Pitch Data: Overview
+# Principal Compoennt Analysis of 2019 MLB Pitch Data: Overview
 Exploring 2019 MLB pitch data using Principal Component Analysis  
 
 
@@ -14,15 +14,15 @@ Exploring 2019 MLB pitch data using Principal Component Analysis
 *   'px', 'pz', 'start_speed', 'spin_rate', 'spin_dir'
 *   'break_angle', 'break_length', 'vx0', 'vy0', 'vz0','pfx_x', 'pfx_z', 'nasty'
 
-## Data Cleaning
+## Data Preprocessing
 
 Made the following changes to clean up the data set:
 
-## Principal Component Analayis Model
+## Principal Component Analayis
 
 Steps done to create model:
 
-## Model Results
+## Results
 
 Graphs from resuling PCA model:
 <br>
