@@ -31,9 +31,9 @@ Steps done to create model:
 
 Graphs from resuling PCA model:
 <br>
-<img src="https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/Biplot.png" width="300" height="300">
-<br>
-<img src="https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/PCA_Comp.png" width="300" height="300">
-<br>
 <img src="https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/Variance_Explained.png" width="300" height="300">
+<br>
+<img src="https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/PCA_Biplot.png" width="300" height="300">
+<br>
+<img src="https://github.com/LiamMcCarrick/PCA-Pitch-Data/blob/main/PCA_Heatmap.png" width="300" height="300">
 <br>
