@@ -1,12 +1,17 @@
 # Principal Compoennt Analysis of 2019 MLB Pitch Data: Overview
-Exploring 2019 MLB pitch data using Principal Component Analysis  
+*   Utilized Principal Component Analysis to explore possible patterns and correlations in 2019 MLB pitch data
+*   Dataset analyzed contained 10,000 pitches and 40 variables
+*   Principal component one seems to be explained mostly by fastballs
+*   Principal component two seems to be explained mostly by off speed pitches
+*   65% of data captured in first two principal components
+*   91% captured in first six principal components
 
 
 ## Code and Resources Used
 
 **Python Version**: 3.9.7           
 **Packages**: numpy, pandas, sklearn, matplotlib            
-**Requirements**: pip install -r requirements.txt           
+**Requirements**: `pip install -r requirements.txt`           
 **Data Set**: https://www.kaggle.com/datasets/pschale/mlb-pitch-data-20152018?select=2019_pitches.csv
 
 ## Features Used
@@ -18,7 +23,7 @@ Exploring 2019 MLB pitch data using Principal Component Analysis
 
 Made the following changes to clean up the data set:
 
-## Principal Component Analayis
+## Principal Component Analysis
 
 Steps done to create model:
 
