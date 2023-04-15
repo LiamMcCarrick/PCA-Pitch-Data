@@ -16,8 +16,8 @@
 **Biplot/Heatmap Information**:         
 https://ostwalprasad.github.io/machine-learning/PCA-using-python.html           
 https://towardsdatascience.com/pca-clearly-explained-how-when-why-to-use-it-and-feature-importance-a-guide-in-python-7c274582c37e           
-**Pitch Type Definitions**:         
-https://baseballsavant.mlb.com/csv-docs#des
+**Pitch Type Definitions**: https://baseballsavant.mlb.com/csv-docs#des         
+**Textbook**: Python Data Science Handbook by Jacob T. Vanderplas
 
 ## Features Used
 
