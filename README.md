@@ -12,7 +12,12 @@
 **Python Version**: 3.9.7           
 **Packages**: numpy, pandas, sklearn, matplotlib            
 **Requirements**: `pip install -r requirements.txt`           
-**Data Set**: https://www.kaggle.com/datasets/pschale/mlb-pitch-data-20152018?select=2019_pitches.csv
+**Data Set**: https://www.kaggle.com/datasets/pschale/mlb-pitch-data-20152018?select=2019_pitches.csv           
+**Biplot/Heatmap Information**:         
+https://ostwalprasad.github.io/machine-learning/PCA-using-python.html           
+https://towardsdatascience.com/pca-clearly-explained-how-when-why-to-use-it-and-feature-importance-a-guide-in-python-7c274582c37e           
+**Pitch Type Definitions**:         
+https://baseballsavant.mlb.com/csv-docs#des
 
 ## Features Used
 
