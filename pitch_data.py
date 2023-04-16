@@ -52,12 +52,16 @@ pdata["pitch_type"] = pdata["pitch_type"].replace(["CH", "CU", "FS", "KC", "SL"]
 pdata["pitch_type"] = pdata["pitch_type"].replace(
     ["EP", "FO", "IN", "KN", "PO", "UN"], 2
 )
-data = pdata[pdata["pitch_type"] < 2]
+
+# drop NA pitch type and targets from data
+xdata = pdata[pdata["pitch_type"] < 2]
+targets = xdata["pitch_type"].to_numpy()
+data = xdata.drop({"pitch_type"}, axis=1)
 
 # intialize PCA function
 scale = StandardScaler()
 scale_data = scale.fit_transform(data)
-pca = PCA(n_components=12)
+pca = PCA(n_components=11)
 pca.fit(scale_data)
 pitches_pca = pca.transform(scale_data)
 perc_exp = pca.explained_variance_ratio_
@@ -121,7 +125,7 @@ def myplot(score, coeff, y, labels=None):
 myplot(
     pitches_pca[:, 0:2],
     np.transpose(loadings[0:2, :]),
-    data["pitch_type"],
+    targets,
     data.columns,
 )
 
@@ -134,41 +138,6 @@ for i in range(len(perc_exp)):
         count += 1
 
 # create the variacne explanied and PCA heatmap graphs
-pcaComp_df = pd.DataFrame(
-    data=pca.components_,
-    index=[
-        "start_speed",
-        "spin_rate",
-        "spin_dir",
-        "break_angle",
-        "break_length",
-        "vx0",
-        "vy0",
-        "vz0",
-        "pfx_x",
-        "pfx_z",
-        "nasty",
-        "pitch_type",
-    ],
-    columns=[
-        "PC1",
-        "PC2",
-        "PC3",
-        "PC4",
-        "PC5",
-        "PC6",
-        "PC7",
-        "PC8",
-        "PC9",
-        "PC10",
-        "PC11",
-        "PC12",
-    ],
-)
-pcaComp_df = pcaComp_df.drop(
-    columns=["PC3", "PC4", "PC5", "PC6", "PC7", "PC8", "PC9", "PC10", "PC11", "PC12"]
-)
-
 pitches_df = pd.DataFrame(
     data=pitches_pca,
     columns=[
@@ -183,21 +152,19 @@ pitches_df = pd.DataFrame(
         "PC9",
         "PC10",
         "PC11",
-        "PC12",
     ],
 )
 pitches_df = pitches_df.drop(
-    columns=["PC3", "PC4", "PC5", "PC6", "PC7", "PC8", "PC9", "PC10", "PC11", "PC12"]
+    columns=["PC3", "PC4", "PC5", "PC6", "PC7", "PC8", "PC9", "PC10", "PC11"]
 )
 
-plt.figure()
+plt.figure(2)
 plt.plot(np.cumsum(per_var))
 plt.ylabel("Percentage of Expalined Variance")
 plt.xlabel("Principal Component Index")
 plt.title("Variance Explained")
 
-plt.figure(2)
-pcaComp_df.plot.scatter(x="PC1", y="PC2")
+plt.figure(3)
 plt.title("PCA Heatmap")
 
 ax = sns.heatmap(
